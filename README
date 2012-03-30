@@ -1,0 +1,1 @@
+These files are the basis for a high performance wordpress blog, using Varnish caching, Nginx, and the W3 Total Cache Wordpress plugin.
