@@ -60,6 +60,8 @@ if (req.url ~ "/wp-content/uploads/") {
 if (req.http.Cookie ~ "wordpress_" || req.http.Cookie ~ "comment_") {
         # A wordpress specific cookie has been set
     return (pass);
+}
+
 
 
 	# allow PURGE from localhost
