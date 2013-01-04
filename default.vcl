@@ -21,6 +21,11 @@ acl purge {
 sub vcl_recv {
 	set req.grace = 2m;
 
+  # Set X-Forwarded-For header for logging in nginx
+  remove req.http.X-Forwarded-For;
+  set    req.http.X-Forwarded-For = client.ip;
+
+
   # Remove has_js and CloudFlare/Google Analytics __* cookies.
   set req.http.Cookie = regsuball(req.http.Cookie, "(^|;\s*)(_[_a-z]+|has_js)=[^;]*", "");
   # Remove a ";" prefix, if present.
